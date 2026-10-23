@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <meta name="description" content="അക്ഷരങ്ങൾ കൂട്ടി വായിക്കാം — മലയാളം ഉച്ചാരണത്തോടെയുള്ള phonics blending practice.">
+  <title>STEP: അക്ഷരങ്ങൾ കൂട്ടി വായിക്കാം</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="home.html" aria-label="STEP home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>STEP<span class="brand-period">.</span></span>
+      </a>
+      <nav class="learning-nav" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a class="is-current" href="index.html" aria-current="page">Phonics</a>
+        <a href="spoken.html">Pronunciation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> READ • BLEND • GROW</span>
+      <h1 id="page-title">അക്ഷരങ്ങൾ കൂട്ടി വായിക്കാം</h1>
+      <p class="hero-subtitle">STEP: Sound it out, blend it together.</p>
+      <p class="hero-copy">Choose a sound card and practise reading each blend aloud.</p>
+      <div class="hero-tip">
+        <span class="tip-icon" aria-hidden="true">✦</span>
+        <span>Try it: <strong>Ba</strong> + <strong>ബി</strong> — കേൾക്കൂ, കൂട്ടിവായിക്കൂ!</span>
+      </div>
+    </section>
+
+    <div class="quiz-entry">
+      <div>
+        <p class="section-kicker">READY FOR A QUICK CHALLENGE?</p>
+        <p class="quiz-entry-copy">Test your sounds with 100 questions from the practice library.</p>
+      </div>
+      <button id="quiz-toggle" class="quiz-toggle" type="button" aria-expanded="false" aria-controls="quiz-panel">
+        പരിശോധിക്കാം / Quiz Test
+      </button>
+    </div>
+
+    <section id="quiz-panel" class="quiz-panel" aria-labelledby="quiz-title" hidden>
+      <div class="quiz-heading">
+        <div>
+          <p class="section-kicker">PHONICS CHECK</p>
+          <h2 id="quiz-title">പരിശോധിക്കാം</h2>
+        </div>
+        <button id="quiz-close" class="quiz-close" type="button">Back to sounds</button>
+      </div>
+
+      <div id="quiz-intro" class="quiz-intro">
+        <p>Each question shows a Malayalam sound. Choose the matching English blend or word. Your answer is checked right away.</p>
+        <button id="quiz-start" class="quiz-primary-button" type="button">Start 100-question quiz</button>
+      </div>
+
+      <div id="quiz-play" class="quiz-play" hidden>
+        <div class="quiz-progress-row">
+          <span id="quiz-progress-label">Question 1 of 100</span>
+          <span id="quiz-score-label">Score: 0</span>
+        </div>
+        <div class="quiz-progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="quiz-progress-fill"></span>
+        </div>
+        <div class="quiz-question-card">
+          <p class="quiz-question-label">Choose the English sound for:</p>
+          <p id="quiz-prompt" class="quiz-prompt" lang="ml"></p>
+          <div id="quiz-options" class="quiz-options" role="group" aria-label="Answer choices"></div>
+          <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+          <button id="quiz-next" class="quiz-primary-button" type="button" hidden>Next question</button>
+        </div>
+      </div>
+
+      <div id="quiz-result" class="quiz-result" aria-live="polite" hidden>
+        <span class="quiz-result-icon" aria-hidden="true">✦</span>
+        <p class="section-kicker">QUIZ COMPLETE</p>
+        <h3>നന്നായി ചെയ്തു!</h3>
+        <p id="quiz-final-score" class="quiz-final-score"></p>
+        <p id="quiz-final-message" class="quiz-final-message"></p>
+        <button id="quiz-restart" class="quiz-primary-button" type="button">Try another quiz</button>
+      </div>
+      <p id="quiz-error" class="quiz-error" role="alert" hidden></p>
+    </section>
+
+    <section class="practice" aria-labelledby="practice-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">YOUR SOUND LIBRARY</p>
+          <h2 id="practice-title">Pick a sound to practise</h2>
+        </div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <span class="visually-hidden">Search sounds</span>
+          <input id="sound-search" type="search" placeholder="Search a sound…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+      </div>
+
+      <nav class="filter-bar" aria-label="Sound groups">
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All sounds</button>
+        <button class="filter-button" type="button" data-filter="letters" aria-pressed="false">A–Z &amp; word families</button>
+        <button class="filter-button" type="button" data-filter="blends" aria-pressed="false">Extra blends</button>
+      </nav>
+
+      <div id="sound-groups" class="sound-groups" aria-label="Phonics sound cards" aria-live="polite"></div>
+      <p id="empty-state" class="empty-state" hidden>No sounds match that search. Try another letter or blend.</p>
+      <p class="pronunciation-note">മലയാളം ഉച്ചാരണങ്ങൾ പരിശീലനത്തിനുള്ള ഏകദേശ ശബ്ദങ്ങളാണ്. ചില ഇംഗ്ലീഷ് അക്ഷരങ്ങളുടെ ശബ്ദം വാക്കനുസരിച്ച് മാറാം. CVC, blend families എന്നിവ വായനാ പരിശീലനത്തിനുള്ള ശബ്ദരീതികളാണ്; ഇവയിലെ എല്ലാ കൂട്ടുകളും നിഘണ്ടുവാക്കുകളായിരിക്കണമെന്നില്ല.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Small sounds. Big reading steps.</span>
+    <span>STEP <span class="brand-period">✦</span> LEARN AT YOUR PACE</span>
+  </footer>
+</body>
+</html>
